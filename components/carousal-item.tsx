@@ -7,13 +7,13 @@ interface props{
 export default function CItem(props:props){
     return(
         <>
-        <div className="relative ">
+        <div className="flex h-full w-full  ">
     
-        <img src={props.url} alt="Featured series image" />
-        <div className="fixed top-0 left-0 bg-gradient-to-r from-black pl-36 pt-56 w-full h-full">
+        <img src={props.url} alt="Featured series image" className="w-4/5" />
+        <div className=" h-full dark:bg-slate-900 p-5 w-1/5 flex flex-col  ">
         <h3 className=" font-medium mb-1 ">Demon slayer</h3>
 
-        <Link href={"#"} className={buttonVariants({variant:'destructive'})}>Watch</Link>
+        <Link href={"#"} className={buttonVariants({variant:'secondary'})}>Watch</Link>
         </div>
         </div></>
     )

@@ -19,7 +19,7 @@ export function CarouselMain() {
               <Card>
                 <CardContent className="flex  items-center justify-center p-4">
                  
-                  <div className="h-80 w-full bg-slate-700">
+                  <div className="h-80 w-full ">
                     <CItem url={img}/>
                   </div>
                 </CardContent>
@@ -28,8 +28,8 @@ export function CarouselMain() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious variant='secondary' />
+      <CarouselNext variant='secondary' />
     </Carousel>
   )
 }

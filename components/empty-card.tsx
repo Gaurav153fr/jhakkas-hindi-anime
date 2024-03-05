@@ -6,7 +6,7 @@ import { DrawerMain } from "./drawer-main"
 
 export function EmptyCard() {
   return (
-    <div className="w-52 dark:bg-slate-900/70 p-5 shadow-md border-dashed border-2 border-white ">
+    <div className="w-52 dark:bg-slate-900/70 p-5 shadow-md border-dashed border-2 border-slate-500 ">
   <AspectRatio ratio={9 / 13}>
     <PlusIcon className="w-full h-full text-slate-700"/>
   </AspectRatio>

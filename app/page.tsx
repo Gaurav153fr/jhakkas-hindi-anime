@@ -1,8 +1,8 @@
 import { CarouselMain } from "@/components/corousel";
-import { DrawerMain } from "@/components/drawer-main";
+
 import { EmptyCard } from "@/components/empty-card";
 import { AspectRatioCard } from "@/components/main-card";
-import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator"
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <div className="flex justify-start">
       <h2 className=" font-extrabold text-2xl my-5 ">Available Series</h2>
       </div>
-  
+  <Separator className="my-5"/>
      <div className=" grid grid-cols-5 gap-x-3 gap-y-5">
       <AspectRatioCard/>
       <AspectRatioCard/>
