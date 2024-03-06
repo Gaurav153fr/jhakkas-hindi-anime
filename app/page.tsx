@@ -1,7 +1,7 @@
 import { CarouselMain } from "@/components/corousel";
 
-import { EmptyCard } from "@/components/empty-card";
-import { AspectRatioCard } from "@/components/main-card";
+
+import SeriesContainer from "@/components/series-container";
 import { Separator } from "@/components/ui/separator"
 
 export default function Home() {
@@ -12,12 +12,14 @@ export default function Home() {
       <h2 className=" font-extrabold text-2xl my-5 ">Available Series</h2>
       </div>
   <Separator className="my-5"/>
-     <div className=" grid grid-cols-5 gap-x-3 gap-y-5">
-      <AspectRatioCard/>
-      <AspectRatioCard/>
-     <EmptyCard/>
+  <SeriesContainer/>
+  
+     
+      
+
    
-     </div>
+    
+
    
     </main>
   );
