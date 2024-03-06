@@ -13,7 +13,7 @@ interface props{
 }
 export function AspectRatioCard(props:props) {
   return (
-    <div className="w-52 dark:bg-slate-900/70 shadow-md p-5">
+    <div className="w-60 dark:bg-slate-900/70 shadow-md p-5">
   <AspectRatio ratio={9 / 13}>
     <img src={props.url} alt="Image" className="rounded-md object-cover" />
   </AspectRatio>
