@@ -1,61 +1,36 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { GetAllSeries } from "@/lib/Get";
 
-interface SelectSeriesProps {
-  onChange: (selectedSeriesId: string) => void;
-}
-
-const SelectSeries: React.FC<SelectSeriesProps> = ({ onChange }) => {
+function SelectSeries() {
   const [series, setSeries] = useState<Row[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await GetAllSeries();
-        const list: Row[] = JSON.parse(JSON.stringify(data));
+  const fetchData =async ()=>{
+    const data = await GetAllSeries()
+    const list: Row[] = JSON.parse(JSON.stringify(data));
+    setSeries(list)
+    console.log(list,series)
 
-        setSeries(list);
-      } catch (error) {
-        console.error("Error fetching series:", error);
-      }
-    };
-
-    fetchData();
+  }
+  fetchData()
   }, []);
 
+
   return (
-    <Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a series" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Series</SelectLabel>
-          {Array.isArray(series) && series.length > 0 ? (
-            series.map((e, i) => (
-              <SelectItem key={i} value={e.id} onSelect={() => onChange(e.id)}>
-                {e.name}
-              </SelectItem>
-            ))
-          ) : (
-            <SelectItem value="__placeholder__" disabled>
-              No series found
-            </SelectItem>
-          )}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div>
+      <h1>Select Series</h1>
+      {Array.isArray(series) && series.length > 0 ? (
+        <ul>
+          {series.map((e, i) => (
+            <li key={i}>{e.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No series found</p>
+      )}
+    </div>
   );
-};
+}
 
 export default SelectSeries;
