@@ -16,13 +16,13 @@ interface SelectSeriesProps {
 }
 
 const SelectSeries: React.FC<SelectSeriesProps> = ({ onChange }) => {
-  const [series, setSeries] = useState<series[]>([]);
+  const [series, setSeries] = useState<Row[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await GetAllSeries();
-        const list: series[] = JSON.parse(JSON.stringify(data));
+        const list: Row[] = JSON.parse(JSON.stringify(data));
 
         setSeries(list);
       } catch (error) {
