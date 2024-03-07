@@ -1,36 +1,45 @@
-"use client"
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { GetAllSeries } from "@/lib/Get";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+ interface res{
+  rows:Row[]
+ }
+export default async function SelectContainer(
 
-function SelectSeries() {
-  const [series, setSeries] = useState<Row[]>([]);
-
-  useEffect(() => {
-  const fetchData =async ()=>{
-    const data = await GetAllSeries()
-    const list: Row[] = JSON.parse(JSON.stringify(data));
-    setSeries(list)
-    console.log(list,series)
-
-  }
-  fetchData()
-  }, []);
+)
+{
+  const data:any = await fetch(`api/getserieslist`, { cache: 'force-cache' })
+.then((res) => res.json())
+.catch((error) => {
+console.error('Error fetching data:', error);
+throw error;
+});
+const res:res = JSON.parse(JSON.stringify(data))
 
 
+
+  
   return (
+  <main>
     <div>
-      <h1>Select Series</h1>
-      {Array.isArray(series) && series.length > 0 ? (
-        <ul>
-          {series.map((e, i) => (
-            <li key={i}>{e.name}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No series found</p>
-      )}
+    <Select>
+    <SelectTrigger className="w-[180px]">
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectGroup>
+        <SelectLabel>Fruits</SelectLabel>
+        {res.rows.map((e,i)=>(<SelectItem key={i} value={e.id}>{e.name}</SelectItem>))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
     </div>
-  );
+  </main>
+)
 }
-
-export default SelectSeries;

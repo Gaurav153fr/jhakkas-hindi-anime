@@ -1,14 +1,12 @@
 import { GetAllSeries } from "@/lib/Get";
 import { MainCard } from "./main-card";
 import { EmptyCard } from "./empty-card";
-import SelectSeries from "./select";
+
 
 export default async function SeriesContainer() {
-  try {
     const seriesData = await GetAllSeries();
    
     const list: Row[] = JSON.parse(JSON.stringify(seriesData));
-    //console.log(list)
     return (
       <section className="grid grid-cols-5 gap-x-3 gap-y-5 px-5" >
        
@@ -23,9 +21,5 @@ export default async function SeriesContainer() {
         )}
              <EmptyCard/>
       </section>
-    );
-  } catch (error) {
-    console.error("Error fetching series data:", error);
-    return null; // Return null or handle the error accordingly
-  }
-}
+    )
+        }

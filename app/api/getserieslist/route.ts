@@ -28,10 +28,17 @@ export async function GET(request: Request) {
             };
         });
 
-        // Returning rows as JSON response
-        return NextResponse.json({ rows }, { status: 200 });
+        // Set CORS headers to disable CORS
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        };
+
+        // Returning rows as JSON response with CORS headers
+        return NextResponse.json({ rows }, { status: 200, headers });
     } catch (error:any) {
         // Returning error response if there's any error during SQL execution
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
     }
 }
