@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+
 
  interface newep{
     series_name: string,
@@ -9,12 +9,9 @@ import { sql } from '@vercel/postgres';
 export async function NewEpi( e:newep) {
    
   try {
-    const result =
-      await sql`INSERT INTO episode(series, ep_no, url, series_id) 
-      VALUES (${e.series_name}, ${e.ep_no},${e.url},${e.series_id});
-      `;
+    const result =await fetch(`/api/new-episode?seriesName=${e.series_name}&epNo=${e.ep_no}&url=${e.url}&seriesId=${e.series_id}`)
       console.log(result,"jhuhhjvhjv")
-    return result.rows;
+    return result
   } catch (error) {
     console.log(error)
 

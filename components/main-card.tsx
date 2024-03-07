@@ -12,7 +12,7 @@ interface props{
   slug:string,
   story:string
 }
-export function AspectRatioCard(props:props) {
+export function MainCard(props:props) {
   return (
     <div className=" dark:bg-slate-900/70 shadow-md p-5 h-full">
   <AspectRatio ratio={4 /5}>
