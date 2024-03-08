@@ -1,4 +1,3 @@
-import {  RabbitIcon } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
 import { cn } from "@/lib/utils"
