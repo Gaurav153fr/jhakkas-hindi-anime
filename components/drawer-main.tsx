@@ -40,9 +40,9 @@ export function DrawerMain(props: props) {
           <div className="p-4 pb-0">
             <div className="flex items-center flex-col md:flex-row justify-center space-x-2">
               <EpiList id={2} active_ep={1} url={props.url} />
-              <ScrollArea className="h-[200px] w-[350px] rounded-md border md:h-[250px]">
+              {/* <ScrollArea className="h-[200px] w-[350px] rounded-md border md:h-[250px]">
                 {props.story}
-              </ScrollArea>
+              </ScrollArea> */}
             </div>
             <div className="mt-3 h-[100px]"></div>
           </div>
