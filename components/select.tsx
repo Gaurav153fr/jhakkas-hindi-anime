@@ -10,8 +10,9 @@ import {
  interface res{
   rows:Row[]
  }
-export default async function SelectContainer(
 
+export default async function SelectContainer(
+handleChange:(e:string)=>void
 )
 {
   const data:any = await fetch(`api/getserieslist`, { cache: 'force-cache' })
@@ -28,14 +29,14 @@ const res:res = JSON.parse(JSON.stringify(data))
   return (
   <main>
     <div>
-    <Select>
+    <Select onValueChange={(value:string)=>handleChange(value)}>
     <SelectTrigger className="w-[180px]">
-      <SelectValue placeholder="Select a fruit" />
+      <SelectValue placeholder="Select a Series" />
     </SelectTrigger>
     <SelectContent>
       <SelectGroup>
-        <SelectLabel>Fruits</SelectLabel>
-        {res.rows.map((e,i)=>(<SelectItem key={i} value={e.id}>{e.name}</SelectItem>))}
+        <SelectLabel>Series</SelectLabel>
+        {res.rows.map((e,i)=>(<SelectItem key={i} value={e.id +","+ e.name}>{e.name}</SelectItem>))}
       </SelectGroup>
     </SelectContent>
   </Select>
