@@ -1,5 +1,5 @@
 interface Row {
-    id: string;
+    id: number;
     name: string;
     slug: string;
     sypnosis: string;

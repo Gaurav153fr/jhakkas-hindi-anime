@@ -9,10 +9,12 @@ import { GetEpisodeById } from "@/lib/Get";
 interface Props {
     id: number;
     active_ep:number,
+    url?:string,
 }
 
 export default async function EpiList(params: Props) {
-
+    var url:string;
+params.url?url=params.url:url=''
     const data = await GetEpisodeById(params.id.toString());
     const list: episode[] = JSON.parse(JSON.stringify(data));
    
@@ -21,9 +23,9 @@ export default async function EpiList(params: Props) {
 
 
     return (
-        <section className="p-5 grid grid-cols-8 gap-x-2">
+        <section className="p-5 flex flex-grow md:gap-3 gap-4 ">
             {list.map((item, i) => (
-                <Link key={i} href={item.ep_no.toString()} className={cn(buttonVariants({ variant: 'secondary' }), {
+                <Link key={i} href={`${url}${item.ep_no}`} className={cn(buttonVariants({ variant: 'secondary' }), {
                     "bg-foreground text-background":item.ep_no==params.active_ep})}>
                             {item.ep_no}
                 </Link>))} 

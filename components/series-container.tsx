@@ -8,7 +8,7 @@ export default async function SeriesContainer() {
    
     const list: Row[] = JSON.parse(JSON.stringify(seriesData));
     return (
-      <section className="grid md:grid-cols-5 grid-cols-2 gap-x-3 gap-y-5 px-5" >
+      <section className=" flex flex-wrap  gap-x-3 gap-y-5 px-5" >
        
         {list.length > 0 ? (
           list.map((item, i) => (

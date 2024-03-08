@@ -19,7 +19,7 @@ export function CarouselMain() {
               <Card>
                 <CardContent className="flex  items-center justify-center p-4">
                  
-                  <div className="h-80 w-full ">
+                  <div className="h-fit w-full ">
                     <CItem url={img}/>
                   </div>
                 </CardContent>
