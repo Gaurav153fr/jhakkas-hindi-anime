@@ -1,13 +1,13 @@
-import axios from 'axios';
+
 import { sql } from '@vercel/postgres';
 export async function GetAllSeries() {
-    const url= process.env.DOMAIN + '/api/getserieslist'
+   
     try  {
-        const response = await axios.get(url);
-        if (!response || !response.data) {
+        const response = await sql`SELECT * FROM series;`;
+        if (!response || !response) {
             throw new Error(`Failed to fetch series`);
         }
-        const data = response.data;
+        const data = response;
          console.log('Series data:', data.rows,"hfdhfhfhffffffffffff");
         return data.rows;
     } catch (error) {

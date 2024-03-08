@@ -1,4 +1,4 @@
-"use client"
+
 import EpiList from "@/components/epilist";
 import VideoIframe from "@/components/video-plyr";
 
