@@ -72,20 +72,21 @@ export default function Page() {
   }
 
   return (
-    <main>
-      {select}
+    <main className="flex md:px-10 px-2 my-10 flex-col w-full">
+      <label className="my-2">Series:{select}</label>
+      
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="seriesId">Series ID:
+        <label htmlFor="seriesId"  className="my-2">Series ID:
           <Input id="seriesId" type="text" placeholder="Series ID" value={seriesId} onChange={handleSeriesIdChange} />
         </label>
-        <label htmlFor="episode">Episode No:
+        <label htmlFor="episode"  className="my-2">Episode No:
           <Input id="episode" type="text" placeholder="Episode No" value={episode} onChange={handleEpisodeChange} />
         </label>
-        <label htmlFor="url">URL:
+        <label htmlFor="url"  className="my-2">URL:
           <Input id="url" type="text" placeholder="URL" value={url} onChange={handleUrlChange} />
         </label>
-        <Button variant='secondary' type="submit">Submit</Button>
+        <Button variant='secondary' type="submit"  className="my-2">Submit</Button>
       </form>
     </main>
   )

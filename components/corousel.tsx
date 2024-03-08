@@ -11,7 +11,7 @@ import CItem from "./carousal-item"
 const imgs =["https://img.flawlessfiles.com/_r/1366x768/100/db/86/db8603d2f4fa78e1c42f6cf829030a18/db8603d2f4fa78e1c42f6cf829030a18.jpg","https://img.flawlessfiles.com/_r/1366x768/100/58/d0/58d0b99666b285d2c484fec5dfaa23f0/58d0b99666b285d2c484fec5dfaa23f0.jpg"]
 export function CarouselMain() {
   return (
-    <Carousel className="w-11/12 ">
+    <Carousel className="md:w-11/12 w-full overflow-hidden ">
       <CarouselContent>
         {imgs.map((img, index) => (
           <CarouselItem key={index}>

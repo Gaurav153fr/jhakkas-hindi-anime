@@ -8,7 +8,7 @@ export async function GetAllSeries() {
             throw new Error(`Failed to fetch series`);
         }
         const data = response;
-         console.log('Series data:', data.rows,"hfdhfhfhffffffffffff");
+        //  console.log('Series data:', data.rows,"hfdhfhfhffffffffffff");
         return data.rows;
     } catch (error) {
         console.error('Error fetching series:', error);
@@ -16,9 +16,10 @@ export async function GetAllSeries() {
     }
 }
 
-export async function GetEpisodeById(id: string) {
+export const GetEpisodeById =async(id:string)=> {
     try {
         const result = await sql`SELECT * FROM episode where series_id=${id};`;
+        console.log(result.rows)
         return result.rows;
     } catch (error) {
         console.error('Error fetching episode by ID:', error);

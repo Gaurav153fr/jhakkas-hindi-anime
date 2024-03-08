@@ -13,11 +13,11 @@ export default function Home({ params }: { params: params }) {
 
   return (
     <main className="flex flex-col items-center justify-between">
-      <section className="flex w-screen h-screen">
-        <div className="w-3/5 h-fit aspect-video p-5">
+      <section className="flex md:flex-row flex-col w-screen h-screen">
+        <div className="md:w-3/5 w-full h-fit aspect-video p-5">
           <VideoIframe id={params.id} ep_no={params.ep} />
         </div>
-        <div className="w-2/5 h-full">
+        <div className="md:w-2/5 w-full h-full md:px-0 px-2">
           <h2 className="font-bold text-2xl my-5">Available Episodes</h2>
           <EpiList id={params.id} active_ep={params.ep} />
           <h2 className="font-bold text-2xl my-5">Other Series</h2>
@@ -27,3 +27,5 @@ export default function Home({ params }: { params: params }) {
     </main>
   );
 }
+
+export const revalidate=60
