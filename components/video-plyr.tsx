@@ -1,12 +1,16 @@
 import { GetUrl } from "@/lib/Get";
-
-export default async function VideoIframe(props) {
+interface props{
+    id:number,
+    ep_no:number
+}
+export default async function VideoIframe(props:props) {
     const data= await GetUrl(props.id,props.ep_no)
     const url = JSON.parse(JSON.stringify(data));
     console.log(url)
     return( 
         <>
             <iframe
+            title="video"
                 id="iframe"
                 allowFullScreen
                 src={url.url}
