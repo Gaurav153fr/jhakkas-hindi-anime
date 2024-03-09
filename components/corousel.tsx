@@ -8,10 +8,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import CItem from "./carousal-item"
-const imgs =["https://img.flawlessfiles.com/_r/1366x768/100/db/86/db8603d2f4fa78e1c42f6cf829030a18/db8603d2f4fa78e1c42f6cf829030a18.jpg","https://img.flawlessfiles.com/_r/1366x768/100/58/d0/58d0b99666b285d2c484fec5dfaa23f0/58d0b99666b285d2c484fec5dfaa23f0.jpg"]
+const imgs =["https://wallpapercave.com/wp/wp8170492.png","https://wallpapercave.com/wp/wp11159159.jpg"]
 export function CarouselMain() {
   return (
-    <Carousel className="md:w-11/12 w-full overflow-hidden ">
+    <Carousel className="md:w-11/12 w-full overflow-hidden">
       <CarouselContent>
         {imgs.map((img, index) => (
           <CarouselItem key={index}>
@@ -20,7 +20,7 @@ export function CarouselMain() {
                 <CardContent className="flex  items-center justify-center p-4">
                  
                   <div className="h-fit w-full ">
-                    <CItem url={img}/>
+                    <CItem url={img} />
                   </div>
                 </CardContent>
               </Card>
