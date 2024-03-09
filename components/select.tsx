@@ -15,7 +15,7 @@ export default async function SelectContainer(
 handleChange:(e:string)=>void
 )
 {
-  const data:any = await fetch(`api/series`, { cache: 'force-cache' })
+  const data:any = await fetch(`/api/series`, { cache: 'force-cache' })
 .then((res) => res.json())
 .catch((error) => {
 console.error('Error fetching data:', error);
