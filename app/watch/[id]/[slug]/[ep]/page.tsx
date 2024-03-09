@@ -30,4 +30,3 @@ export default function Home({ params }: { params: params }) {
   );
 }
 
-export const revalidate=60

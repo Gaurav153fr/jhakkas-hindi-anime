@@ -19,7 +19,7 @@ export async function GetAllSeries() {
 export const GetEpisodeById =async(id:string)=> {
     try {
         const result = await sql`SELECT * FROM episode where series_id=${id};`;
-        console.log(result.rows)
+        //console.log(result.rows)
         return result.rows;
     } catch (error) {
         console.error('Error fetching episode by ID:', error);

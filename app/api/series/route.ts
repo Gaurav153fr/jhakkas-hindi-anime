@@ -42,3 +42,25 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
     }
 }
+
+
+
+export async function POST(request: Request) {
+  try {
+    const { seriesName, slug, url, story } = await request.json();
+    
+    if (!seriesName || !slug || !url || !story) {
+      throw new Error('All parameters are required');
+    }
+
+    await sql`
+      INSERT INTO series(name, slug, sypnosis, url,created_on) 
+      VALUES (${seriesName}, ${slug}, ${url}, ${url},CURRENT_DATE)
+    `;
+    
+    const seriesData = await sql`SELECT * FROM series WHERE slug=${seriesName};`;
+    return NextResponse.json({ seriesData }, { status: 200 });
+  } catch (error:any) {
+    return NextResponse.json({ error: error.message,"url":request.url }, { status: 500 });
+  }
+}

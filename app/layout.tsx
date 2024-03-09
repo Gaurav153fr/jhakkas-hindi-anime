@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import NextTopLoader from 'nextjs-toploader';
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Jhakkas: hindi anime",
@@ -26,7 +27,8 @@ export default function RootLayout({
             disableTransitionOnChange
           > <NextTopLoader />
              <Header />
-            {children}
+             <main>{children}</main>
+        <Toaster />
           </ThemeProvider>
         </body>
     </html>

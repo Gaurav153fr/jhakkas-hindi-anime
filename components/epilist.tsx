@@ -33,3 +33,4 @@ params.url?url=params.url:url=''
         </section>
     );
 }
+export const revalidate=60
