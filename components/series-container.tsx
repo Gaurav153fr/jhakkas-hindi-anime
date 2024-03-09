@@ -23,4 +23,5 @@ export default async function SeriesContainer() {
       </section>
     )
         }
-        export const revalidate=60
+        
+   export const revalidate=60

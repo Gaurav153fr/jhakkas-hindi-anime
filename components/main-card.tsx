@@ -23,7 +23,7 @@ export function MainCard(props:props) {
   <p className=" line-clamp-3 font-semibold text-slate-600 text-sm">{props.story}</p>
   <span>
   <h3 className=" font-medium mb-1 text-center  ">{props.name}</h3>
-  <DrawerMain id={props.id} story={props.story} url={`/watch/${props.id}/${props.slug}/`} />
+  <DrawerMain id={props.id} story={props.story} name={props.name} url={`/watch/${props.id}/${props.slug}/`} />
   {/* <Link href= className={cn(buttonVariants({variant:'secondary'}),"w-full flex justiy-around" )}></Link> */}
   </span></span></div>
   )

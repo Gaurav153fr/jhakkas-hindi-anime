@@ -17,14 +17,14 @@ export default async function EpiList(params: Props) {
 params.url?url=params.url:url=''
     const data = await GetEpisodeById(params.id.toString());
     const list: episode[] = JSON.parse(JSON.stringify(data));
-   
+    const sorted=list.sort(function(a, b){return a.ep_no-b.ep_no})
 
 
 
 
     return (
         <section className="p-5 flex flex-wrap md:gap-3 gap-4 ">
-            {list.map((item, i) => (
+            {sorted && sorted.map((item, i) => (
                 <Link key={i} href={`${url}${item.ep_no}`} className={cn(buttonVariants({ variant: 'secondary' }), {
                     "bg-foreground text-background":item.ep_no==params.active_ep})}>
                             {item.ep_no}
@@ -33,4 +33,3 @@ params.url?url=params.url:url=''
         </section>
     );
 }
-export const revalidate=60
