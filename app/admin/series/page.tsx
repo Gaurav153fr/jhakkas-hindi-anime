@@ -4,22 +4,21 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useEffect, useState } from "react"
-
-
+import { SeriesTable } from "@/components/tableSeries"
+import SelectContainer from "@/components/select"
 
 export default function Page() {
- 
-  //const [table, setTable] = useState<any>("")
+  const [id, setid] = useState<any>("")
+
+  const [isTable, setIsTable] = useState<any>(false)
+  const [select, setSelect] = useState<any>("loading")
+  const [table, setTable] = useState<any>("")
   const [story, setStory] = useState<string>("No story available for this")
   const [slug, setSlug] = useState<string>("")
   const [url, setUrl] = useState<string>("")
   const [seriesName, setSeriesName] = useState<string>("")
 const[status,setStatus]=useState<string>("submit to start")
-//   const handleSelectChange = (e: string) => {
-//     const data = e.split(',')
-//     setSeriesId(data[0])
-//     setSeries(data[1])
-//   }
+
 const handleStoryChange= (e: React.ChangeEvent<HTMLInputElement>) => {
     setStory(e.target.value)
   }
@@ -63,32 +62,47 @@ const handleStoryChange= (e: React.ChangeEvent<HTMLInputElement>) => {
     return false
   }
 
-//   useEffect(() => {
-//     const handleAsync = async () => {
-//       const s = await SelectContainer(handleSelectChange)
-//       setSelect(s)
-     
-//     }
-//     handleAsync()
-//   }, [])
+// 
+const handleSelectChange = (e: string) => {
+  setTable("")
+  const data = e.split(',')
+  setid(data[0])
+  
+  
+}
+// 
+const handleistable = () => {
+  if(isTable){
+    setIsTable(false)
+  }
+ else{
+  setIsTable(true)
+ }
+  
+}
  
-//   useEffect(() => {
-//    setTable("")
-//   }, [seriesId])
-//   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     sendPostRequest();
+  useEffect(() => {
+   
+  const handleShowTable= async()=>{
+   const select = await SelectContainer(handleSelectChange)
+   setSelect(select)
+  }
+     
+  handleShowTable()
+  }, [])
+  
+   
+  useEffect(() => {
+   
+    const handleShowTable= async()=>{
+     const select = await SeriesTable(id)
+     setTable(select)
+    }
+       if(isTable){
+    handleShowTable()}
+    }, [id])
     
-//   }
 
-//   const handleShowTable=()=>{
-//     if(seriesId.length>0){
-//     const t = TableDemo(seriesId)
-//       setTable(t)}
-//       else{
-//         setTable("please select a series first")
-//       }
-//   }
   return (
     <main className="flex md:px-10 px-2 my-10 flex-col w-full">
       {/* <label className="my-2">Series:{select}</label> */}
@@ -109,9 +123,10 @@ const handleStoryChange= (e: React.ChangeEvent<HTMLInputElement>) => {
         </label>
         <Button variant='secondary' type="submit"  className="my-2"  onClick={handleSubmit}>Submit</Button>
       </div>
-      {/* <Button onClick={handleShowTable}>Load All Episode </Button>
+      {select}
+      <Button onClick={handleistable}>Load All Series </Button>
 {table}
-       */}
+      
        {status}
     </main>
   )

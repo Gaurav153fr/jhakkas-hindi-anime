@@ -11,7 +11,7 @@ export default function Home() {
       <CarouselMain/>
       <div className="parent-container flex justify-start self-start px-10">
    
-      <h2 className="font-bold text-3xl my-5 flex justify-initial text-slate-300 items-center align-center">Available Series {' '}<PopcornIcon/></h2>
+      <h2 className="font-bold text-3xl my-5 flex justify-initial dark:text-slate-300 items-center align-center">Available Series {' '}<PopcornIcon/></h2>
    
   </div>
  
@@ -27,3 +27,4 @@ export default function Home() {
     </main>
   );
 }
+export const revalidate=60

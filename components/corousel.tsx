@@ -11,7 +11,7 @@ import CItem from "./carousal-item"
 const imgs =["https://wallpapercave.com/wp/wp8170492.png","https://wallpapercave.com/wp/wp11159159.jpg"]
 export function CarouselMain() {
   return (
-    <Carousel className="md:w-11/12 w-full overflow-hidden">
+    <Carousel className="md:w-11/12 w-full overflow-hidden h-[350px]">
       <CarouselContent>
         {imgs.map((img, index) => (
           <CarouselItem key={index}>

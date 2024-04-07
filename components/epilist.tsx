@@ -25,7 +25,7 @@ params.url?url=params.url:url=''
     return (
         <section className="p-5 flex flex-wrap md:gap-3 gap-4 ">
             {sorted && sorted.map((item, i) => (
-                <Link key={i} href={`${url}${item.ep_no}`} className={cn(buttonVariants({ variant: 'secondary' }), {
+                <Link key={i} href={`${url}${item.ep_no}`} className={cn(buttonVariants({ variant: 'outline' }), {
                     "bg-foreground text-background":item.ep_no==params.active_ep})}>
                             {item.ep_no}
                 </Link>))} 

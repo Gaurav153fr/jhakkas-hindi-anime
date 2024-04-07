@@ -25,7 +25,7 @@ interface data {
 
 export async function TableDemo(id: string) {
   //const { toast } = useToast()
-  const data: data = await fetch(`api/episodes?id=${Number(id)}`, {
+  const data: data = await fetch(`/api/episodes?id=${Number(id)}`, {
     cache: "force-cache",
   })
     .then((res) => res.json())
