@@ -68,7 +68,7 @@ export async function POST(request: Request) {
 
     await sql`
       INSERT INTO series(name, slug, sypnosis, url,created_on) 
-      VALUES (${seriesName}, ${slug}, ${url}, ${url},CURRENT_DATE)
+      VALUES (${seriesName}, ${slug}, ${story}, ${url},CURRENT_DATE)
     `;
     
     const seriesData = await sql`SELECT * FROM series WHERE slug=${seriesName};`;
