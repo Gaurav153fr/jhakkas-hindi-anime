@@ -24,4 +24,4 @@ export default async function SeriesContainer() {
     )
         }
         
-   export const revalidate=60
+   export const revalidate=5

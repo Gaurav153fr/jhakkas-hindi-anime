@@ -12,8 +12,8 @@ interface props{
 export function MainCard(props:props) {
   return (
     <div className=" dark:bg-slate-900/70 shadow-md md:p-5  md:h-fit md:block flex md:max-w-52 max-w-fit my-2">
- <div className="w-1/2 md:w-full p-2 bg-slate-400 h-52 ">
-   <Image src={props.url} alt="Image" className=" h-full rounded-md object-cover "  height={'50'} width='50' />
+ <div className="w-1/2 md:w-full p-2  h-52 overflow-hidden ">
+   <img src={props.url} alt="Image" className=" w-full h-full rounded-md object-cover " loading="lazy"  />
     </div>
   <span className="w-1/2 p-2 md:w-full flex flex-col justify-between h-40">
   <p className=" line-clamp-3 font-semibold text-slate-600 text-sm">{props.story}</p>
