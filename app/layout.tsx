@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" >
        <link rel="icon" type="image/png" href="/fv.png" />
+       <link rel="manifest" href="/manifest.json" />
         <body>
           <ThemeProvider
             attribute="class"

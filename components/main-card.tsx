@@ -15,7 +15,7 @@ export function MainCard(props:props) {
  <div className="w-1/2 md:w-full p-2  h-52 overflow-hidden ">
    <img src={props.url} alt="Image" className=" w-full h-full rounded-md object-cover " loading="lazy"  />
     </div>
-  <span className="w-1/2 p-2 md:w-full flex flex-col justify-between h-40">
+  <span className="w-1/2 p-2 md:w-full flex flex-col justify-between pb-5">
   <p className=" line-clamp-3 font-semibold text-slate-600 text-sm">{props.story}</p>
   <span>
   <h3 className=" font-medium mb-1 text-center  ">{props.name}</h3>
