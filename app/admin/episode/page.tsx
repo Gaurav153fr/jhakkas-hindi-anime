@@ -1,6 +1,6 @@
 "use client"
-import SelectContainer from "@/components/select"
-import { TableDemo } from "@/components/tabled"
+import SelectContainer from "@/components/series-selecter"
+import { TableDemo } from "@/components/episode-edit-data-table"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"

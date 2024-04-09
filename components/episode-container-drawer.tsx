@@ -10,7 +10,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-import EpiList from "./epilist";
+import EpiList from "./episode-list-container";
 import { PlayIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -19,7 +19,7 @@ interface props {
   id: number;
   story: string;
   url: string;
-  name:string;
+  name: string;
 }
 
 export function DrawerMain(props: props) {
@@ -33,16 +33,16 @@ export function DrawerMain(props: props) {
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm md:max-w-full md:h-1/2">
-          <DrawerHeader>
+          <DrawerHeader className="flex justify-between">
+            <span>
             <DrawerTitle>{props.name}</DrawerTitle>
-            <DrawerDescription>Select a episode.</DrawerDescription>
+            <DrawerDescription>Select a episode</DrawerDescription>
+            </span>
+          <DrawerClose>close</DrawerClose>
           </DrawerHeader>
           <div className="p-4 pb-0">
             <div className="flex items-center flex-col md:flex-row justify-center space-x-2">
               <EpiList id={props.id} active_ep={1} url={props.url} />
-              {/* <ScrollArea className="h-[200px] w-[350px] rounded-md border md:h-[250px]">
-                {props.story}
-              </ScrollArea> */}
             </div>
             <div className="mt-3 h-[100px]"></div>
           </div>
@@ -65,4 +65,4 @@ export function DrawerMain(props: props) {
     </Drawer>
   );
 }
-export const revalidate=60;
+export const revalidate = 60;

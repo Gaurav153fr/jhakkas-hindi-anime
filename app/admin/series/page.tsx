@@ -4,8 +4,8 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useEffect, useState } from "react"
-import { SeriesTable } from "@/components/tableSeries"
-import SelectContainer from "@/components/select"
+import { SeriesTable } from "@/components/new-series-form"
+import SelectContainer from "@/components/series-selecter"
 
 export default function Page() {
   const [id, setid] = useState<any>("")

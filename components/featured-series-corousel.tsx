@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import CItem from "./carousal-item"
+import CItem from "./featured-carousal-item"
 const data =[{id:11,name:"Bucchigiri?!",slug:"bucchigiri",story:"Arajin Tomoshibi gets caught up in battles among powerful individuals after reuniting with his former friend Matakara Asamine. Meanwhile, the shadow of a colossal demon appears...?!",url:"https://cdn.myanimelist.net/images/anime/1934/135982l.jpg"},
 {id:10,name:"Lookism",slug:"lookism",story:"Violence, name-calling, and humiliation are a daily reality for high school student Park Hyung Suk. Chubby and insecure, he is often used as a plaything and punching bag for bullies... ",url:"https://cdn.myanimelist.net/images/anime/1435/131396.jpg"}]
 export function CarouselMain() {

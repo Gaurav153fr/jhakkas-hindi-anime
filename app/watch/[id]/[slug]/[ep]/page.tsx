@@ -1,7 +1,7 @@
 
-import EpiList from "@/components/epilist";
-import SeriesContainer from "@/components/series-container";
-import VideoIframe from "@/components/video-plyr";
+import EpiList from "@/components/episode-list-container";
+import SeriesContainer from "@/components/series-card-container";
+import VideoIframe from "@/components/video-player";
 
 interface params {
   id: number;
@@ -23,6 +23,7 @@ export default function Home({ params }: { params: params }) {
           <EpiList id={params.id} active_ep={params.ep} />
 
           <h2 className="font-bold text-2xl my-5">Other Series</h2>
+
 <SeriesContainer/>
         </div>
       </section>
