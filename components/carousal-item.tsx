@@ -3,6 +3,10 @@ import { buttonVariants } from "./ui/button";
 import { DrawerMain } from "./drawer-main";
 
 interface props{
+    id:number,
+    name:string,
+    slug:string,
+    story:string,
     url:string,
 }
 export default function CItem(props:props){
@@ -12,8 +16,8 @@ export default function CItem(props:props){
     <span className=" h-52 w-full  md:w-3/4">
         <img src={props.url} alt="Featured series image" className=" w-full h-full rounded-md object-cover " loading="lazy" /></span>
         <div className=" dark:bg-slate-900 p-2 flex flex-col justify-end md:ml-5  rounded-md w-full ">
-        <h3 className=" font-medium mb-1 ">Solo Leveling</h3>
-        <DrawerMain id={3} story={"watch solo leveling"} name="Solo leveling" url={`/watch/${3}/${"solo-leveling"}/`} />
+        <h3 className=" font-bold mb-5 ">{props.name}</h3><p className="text-gray-400 mb-2">{props.story}</p>
+        <DrawerMain id={props.id} story={props.story} name={props.name} url={`/watch/${props.id}/${props.slug}/`} />
         </div>
         </div>
     )

@@ -8,20 +8,21 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import CItem from "./carousal-item"
-const imgs =["https://wallpapercave.com/wp/wp8170492.png","https://wallpapercave.com/wp/wp11159159.jpg"]
+const data =[{id:11,name:"Bucchigiri?!",slug:"bucchigiri",story:"Arajin Tomoshibi gets caught up in battles among powerful individuals after reuniting with his former friend Matakara Asamine. Meanwhile, the shadow of a colossal demon appears...?!",url:"https://cdn.myanimelist.net/images/anime/1934/135982l.jpg"},
+{id:10,name:"Lookism",slug:"lookism",story:"Violence, name-calling, and humiliation are a daily reality for high school student Park Hyung Suk. Chubby and insecure, he is often used as a plaything and punching bag for bullies... ",url:"https://cdn.myanimelist.net/images/anime/1435/131396.jpg"}]
 export function CarouselMain() {
   return (
     <Carousel className="md:w-11/12 w-full overflow-hidden flex">
      
       <CarouselContent>
-        {imgs.map((img, index) => (
+        {data.map((e, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
                 <CardContent className="flex  items-center justify-center p-4">
                  
                   <div className="h-fit w-full ">
-                    <CItem url={img} />
+                    <CItem url={e.url} name={e.name} id={e.id} slug={e.slug} story={e.story} />
                   </div>
         
                 </CardContent>

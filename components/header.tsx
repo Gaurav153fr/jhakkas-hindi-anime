@@ -9,7 +9,7 @@ export default function Header(){
            <Link href="/" className="hover:text-foreground/70">
                 <img src="/fv.png" alt="logo" className="w-5 hover:opacity-70" loading="lazy" /><span>हिंदी</span></Link>
                 <span className='flex'>
-                <Link href='/admin' className={cn(buttonVariants({variant:'secondary'}),"w- flex justiy-around mr-2" )}>Admin</Link>
+                {/* <Link href='/admin' className={cn(buttonVariants({variant:'secondary'}),"w- flex justiy-around mr-2" )}>Admin</Link> */}
         <ModeToggle/> </span>
         </nav>
         
