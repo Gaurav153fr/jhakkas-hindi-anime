@@ -9,12 +9,24 @@ import { Edit3Icon } from "lucide-react";
 export default function SeriesTable(rowData:Row) {
   
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    console.log(event.target.name.value)
     event.preventDefault();
-    if (!rowData) return;
+
+    const form = event.target as HTMLFormElement;
+    const nameInput = form.elements.namedItem("name") as HTMLInputElement;
+    const slugInput = form.elements.namedItem("slug") as HTMLInputElement;
+    const urlInput = form.elements.namedItem("url") as HTMLInputElement;
+    const synopsisInput = form.elements.namedItem("sypnosis") as HTMLInputElement;
+
+    if (!rowData || !nameInput || !slugInput || !urlInput || !synopsisInput) return;
 
     try {
-      await EditSeriesById(rowData.id.toString(), event.target.name.value, event.target.slug.value, event.target.url.value, event.target.sypnosis.value);
+      await EditSeriesById(
+        rowData.id.toString(),
+        nameInput.value,
+        slugInput.value,
+        urlInput.value,
+        synopsisInput.value
+      );
       console.log("Changes saved successfully:", rowData.name, rowData.slug, rowData.url, rowData.sypnosis);
       // Optionally handle success message or redirect after save
     } catch (error) {
