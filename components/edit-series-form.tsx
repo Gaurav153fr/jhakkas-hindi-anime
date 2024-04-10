@@ -43,7 +43,7 @@ export default function SeriesTable(rowData:Row) {
 
           <DialogTitle> Edit Series</DialogTitle>
         </DialogHeader>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(e)=>handleSubmit(e)}>
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="name" className="text-right">
@@ -87,7 +87,7 @@ export default function SeriesTable(rowData:Row) {
                 </Label>
                 <Input
                   id="synopsis"
-                  name="synopsis"
+                  name="sypnosis"
                   defaultValue={rowData.sypnosis}
                   onChange={handleInputChange}
                   className="col-span-3"
@@ -99,7 +99,7 @@ export default function SeriesTable(rowData:Row) {
                 </Label>
                 <Input
                   id="date"
-                  name="sypnosis"
+                  name="date"
                   value={rowData.created_on}
                   disabled
                   onChange={handleInputChange}
