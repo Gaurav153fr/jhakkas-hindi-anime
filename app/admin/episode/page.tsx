@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { SendIcon } from "lucide-react"
 
 
 
@@ -101,9 +102,9 @@ export default function Page() {
         <label htmlFor="url"  className="my-2">URL:
           <Input id="url" type="text" placeholder="URL" value={url} onChange={handleUrlChange} />
         </label>
-        <Button variant='secondary' type="submit"  className="my-2">Submit</Button>
+        <Button variant='secondary' type="submit"  className="my-2">Submit <SendIcon/></Button>
       </form>
-      <Button onClick={handleShowTable}>Load All Episode </Button>
+      <Button onClick={handleShowTable}>Load All Episode for selected series </Button>
 {table}
       
     </main>

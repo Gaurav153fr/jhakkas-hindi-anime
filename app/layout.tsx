@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/top-nav-header";
 import NextTopLoader from 'nextjs-toploader';
-import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react';export const metadata: Metadata = {
   title: "Jhakkas: hindi anime",
   description: "Watch anime in your regional language",
@@ -28,8 +28,9 @@ export default function RootLayout({
           > <NextTopLoader />
              <Header />
              <main>{children}
-             <Analytics /></main>
-        <Toaster />
+             <Analytics />
+             <Toaster/></main>
+     
           </ThemeProvider>
         </body>
     </html>

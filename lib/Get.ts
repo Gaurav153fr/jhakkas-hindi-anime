@@ -45,3 +45,28 @@ interface NewEpisode {
     url: string;
     series_id: string;
 }
+
+// Define a function to fetch row data by ID
+export async function fetchRowById(id: string): Promise<Row | null> {
+  try {
+    // Construct the API URL with the provided ID
+    const url = `/api/series?id=${id}`;
+
+    // Fetch the data from the API
+    const response = await fetch(url, { cache: 'force-cache' });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error('Failed to fetch row data');
+    }
+
+    // Parse the JSON response
+    const data = await response.json();
+
+    // Return the first row from the response (assuming the API returns an array of rows)
+    return data.rows && data.rows.length > 0 ? data.rows[0] : null;
+  } catch (error) {
+    console.error('Error fetching row data:', error);
+    return null; // Return null in case of an error
+  }
+}
