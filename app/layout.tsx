@@ -4,8 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/top-nav-header";
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
-
-export const metadata: Metadata = {
+import { Analytics } from '@vercel/analytics/react';export const metadata: Metadata = {
   title: "Jhakkas: hindi anime",
   description: "Watch anime in your regional language",
   icons:"/favicon.ico",
@@ -28,7 +27,8 @@ export default function RootLayout({
             disableTransitionOnChange
           > <NextTopLoader />
              <Header />
-             <main>{children}</main>
+             <main>{children}
+             <Analytics /></main>
         <Toaster />
           </ThemeProvider>
         </body>
