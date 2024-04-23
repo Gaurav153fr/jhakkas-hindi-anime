@@ -4,7 +4,8 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/top-nav-header";
 import NextTopLoader from 'nextjs-toploader';
-import { Analytics } from '@vercel/analytics/react';export const metadata: Metadata = {
+import { Analytics } from '@vercel/analytics/react';
+export const metadata: Metadata = {
   title: "Jhakkas: hindi anime",
   description: "Watch anime in your regional language",
   icons:"/favicon.ico",

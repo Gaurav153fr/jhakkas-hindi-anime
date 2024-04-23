@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <>
-      <nav className="w-full flex justify-between md:px-10 px-2  py-2 shadow-md   bg-background">
+      <nav className="w-full flex justify-between md:px-10 px-2  py-2 shadow-md   bg-background max-md:sticky top-0 z-50">
         <Link href="/" className="hover:text-foreground/70">
           <img
             src="/fv.png"

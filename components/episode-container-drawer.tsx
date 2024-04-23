@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/drawer";
 
 import EpiList from "./episode-list-container";
-import { PlayIcon } from "lucide-react";
+import { PlayIcon, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -33,12 +33,16 @@ export function DrawerMain(props: props) {
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm md:max-w-full md:h-1/2">
-          <DrawerHeader className="flex justify-between">
+          <DrawerHeader className="flex justify-between flex-col">
+            <DrawerClose className="self-end">
+              <X />
+            </DrawerClose>
             <span>
-            <DrawerTitle>{props.name}</DrawerTitle>
-            <DrawerDescription>Select a episode</DrawerDescription>
+              <DrawerTitle>{props.name}</DrawerTitle>
+              <DrawerDescription className="mt-2">
+                Select a episode to watch
+              </DrawerDescription>
             </span>
-          <DrawerClose>close</DrawerClose>
           </DrawerHeader>
           <div className="p-4 pb-0">
             <div className="flex items-center flex-col md:flex-row justify-center space-x-2">
