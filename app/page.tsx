@@ -14,7 +14,7 @@ export default function Home() {
         </h2>
       </div>
 
-      <SeriesContainer />
+      <SeriesContainer horizontal={false} />
     </main>
   );
 }

@@ -14,8 +14,12 @@ export default function Page() {
   const [seriesName, setSeriesName] = useState<string>("");
   const [slug, setSlug] = useState<string>("");
   const [story, setStory] = useState<string>("");
-  const [url, setUrl] = useState<string>("https://th.bing.com/th/id/OIP.WOb3U-wVlw8UeV2JBqe-FAHaKx?w=115&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7");
-  const [seriesTable, setSeriesTable] = useState<any>(<Button disabled>Select a series first</Button>);
+  const [url, setUrl] = useState<string>(
+    "https://th.bing.com/th/id/OIP.WOb3U-wVlw8UeV2JBqe-FAHaKx?w=115&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7"
+  );
+  const [seriesTable, setSeriesTable] = useState<any>(
+    <Button disabled>Select a series first</Button>
+  );
   const [seriesDataRaw, setSeriesData] = useState<any>(null);
 
   const handleStoryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +39,7 @@ export default function Page() {
   };
 
   const handleSubmit = async () => {
+    console.log(seriesName, slug, url, story);
     try {
       const response = await fetch("/api/series", {
         method: "POST",
@@ -64,51 +69,51 @@ export default function Page() {
     }
   };
 
-const handleSelectChange=(e:string)=>{
-  const data=e.split(',/')
-  console.log(data)
+  const handleSelectChange = (e: string) => {
+    const data = e.split(",/");
+    console.log(data);
 
-  const seriesData:Row={
-    id: parseInt(data[0]),
-    name: data[1],
-    slug: data[2],
-    sypnosis: data[3],
-    url: data[4],
-    created_on: data[5]
-
-  }
-setSeriesData(seriesData)
-}
-useEffect(() => {
-  // Define an async function within useEffect to fetch initial data
-  const fetchData = async () => {
-    try {
-      // Call SelectContainer to fetch initial data for a specific ID (e.g., "2")
-      const select = await SelectContainer(handleSelectChange);
-      setSelectContainer(select)
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const seriesData: Row = {
+      id: parseInt(data[0]),
+      name: data[1],
+      slug: data[2],
+      sypnosis: data[3],
+      url: data[4],
+      created_on: data[5],
+    };
+    setSeriesData(seriesData);
   };
+  useEffect(() => {
+    // Define an async function within useEffect to fetch initial data
+    const fetchData = async () => {
+      try {
+        // Call SelectContainer to fetch initial data for a specific ID (e.g., "2")
+        const select = await SelectContainer(handleSelectChange);
+        setSelectContainer(select);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  // Call the async function to fetch data when the component mounts
-  fetchData();
-}, []); // Empty dependency array ensures useEffect runs only once on mount
+    // Call the async function to fetch data when the component mounts
+    fetchData();
+  }, []); // Empty dependency array ensures useEffect runs only once on mount
 
-useEffect(() => {
-  // Define an async function within useEffect to fetch initial data
-  const fetchData = async () => {
-    try {
-      if(seriesDataRaw){
-      setSeriesTable(SeriesTable(seriesDataRaw))}
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  useEffect(() => {
+    // Define an async function within useEffect to fetch initial data
+    const fetchData = async () => {
+      try {
+        if (seriesDataRaw) {
+          setSeriesTable(SeriesTable(seriesDataRaw));
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  // Call the async function to fetch data when the component mounts
-  fetchData();
-}, [seriesDataRaw]); // Empty dependency array ensures useEffect runs only once on mount
+    // Call the async function to fetch data when the component mounts
+    fetchData();
+  }, [seriesDataRaw]); // Empty dependency array ensures useEffect runs only once on mount
 
   return (
     <main className="flex md:px-10 px-2 my-10 flex-col w-full">
@@ -156,12 +161,9 @@ useEffect(() => {
       <div className="border-2 p-5 rounded-md shadow-md mt-5">
         <h2 className="text-xl font-bold mb-5">Edit Series:</h2>
         <div className="flex items-center space-x-4">
-         
           {selectContainer}
-        {seriesTable}
-         
+          {seriesTable}
         </div>
-       
       </div>
     </main>
   );

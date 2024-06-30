@@ -16,7 +16,7 @@ export function CarouselMain() {
      
       <CarouselContent>
         {data.map((e, index) => (
-          <CarouselItem key={index}>
+          <CarouselItem key={index} className="cursor-move">
             <div className="p-1">
               <Card>
                 <CardContent className="flex  items-center justify-center p-4">

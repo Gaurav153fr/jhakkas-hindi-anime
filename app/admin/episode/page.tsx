@@ -1,112 +1,137 @@
-"use client"
-import SelectContainer from "@/components/series-selecter"
-import { TableDemo } from "@/components/episode-edit-data-table"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { cn } from "@/lib/utils"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { SendIcon } from "lucide-react"
-
-
+"use client";
+import SelectContainer from "@/components/series-selecter";
+import { TableDemo } from "@/components/episode-edit-data-table";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { SendIcon } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function Page() {
-  const [select, setSelect] = useState<any>("loading")
-  const [table, setTable] = useState<any>("")
-  const [series, setSeries] = useState<string>("please select a series")
-  const [episode, setEpisode] = useState<string>("")
-  const [url, setUrl] = useState<string>("")
-  const [seriesId, setSeriesId] = useState<string>("")
+  const [select, setSelect] = useState<any>("loading");
+  const [table, setTable] = useState<any>("");
+  const [series, setSeries] = useState<string>("please select a series");
+  const [episode, setEpisode] = useState<string>("");
+  const [url, setUrl] = useState<string>("");
+  const [seriesId, setSeriesId] = useState<string>("");
 
   const handleSelectChange = (e: string) => {
-    const data = e.split(',')
-    setSeriesId(data[0])
-    setSeries(data[1])
-  }
+    const data = e.split(",");
+    setSeriesId(data[0]);
+    setSeries(data[1]);
+  };
 
   const handleEpisodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEpisode(e.target.value)
-  }
+    setEpisode(e.target.value);
+  };
 
   const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUrl(e.target.value)
-  }
+    setUrl(e.target.value);
+  };
 
   const handleSeriesIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSeriesId(e.target.value)
-  }
+    setSeriesId(e.target.value);
+  };
 
   const sendPostRequest = async () => {
     try {
-
-      const response = await fetch('/api/new-episode', {
-        method: 'POST',
+      const response = await fetch("/api/new-episode", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           // Add any additional headers if required
         },
-        body: JSON.stringify({ seriesName: series, epNo: episode,url:url,seriesId:seriesId }),      });
+        body: JSON.stringify({
+          seriesName: series,
+          epNo: episode,
+          url: url,
+          seriesId: seriesId,
+        }),
+      });
 
       if (response.ok) {
-        console.log('Post request successful!');
+        toast.success("New episode created successfully!");
+        console.log("Post request successful!");
         // Handle success as needed
       } else {
-        console.error('Post request failed!');
+        toast.error("Failed to create new episode");
         // Handle error response
       }
     } catch (error) {
-      console.error('Error while sending post request:', error);
+      console.error("Error while sending post request:", error);
       // Handle any network or other errors
     }
-  }
+  };
 
   useEffect(() => {
     const handleAsync = async () => {
-      const s = await SelectContainer(handleSelectChange)
-      setSelect(s)
-     
-    }
-    handleAsync()
-  }, [])
- 
+      const s = await SelectContainer(handleSelectChange);
+      setSelect(s);
+    };
+    handleAsync();
+  }, []);
+
   useEffect(() => {
-   setTable("")
-  }, [seriesId])
+    setTable("");
+  }, [seriesId]);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendPostRequest();
-    
-  }
+  };
 
-  const handleShowTable=()=>{
-    if(seriesId.length>0){
-    const t = TableDemo(seriesId)
-      setTable(t)}
-      else{
-        setTable("please select a series first")
-      }
-  }
+  const handleShowTable = () => {
+    if (seriesId.length > 0) {
+      const t = TableDemo(seriesId);
+      setTable(t);
+    } else {
+      setTable("please select a series first");
+    }
+  };
   return (
     <main className="flex md:px-10 px-2 my-10 flex-col w-full">
-
       <label className="my-2">Series:{select}</label>
-      
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="seriesId"  className="my-2">Series ID:
-          <Input id="seriesId" type="text" placeholder="Series ID" value={seriesId} onChange={handleSeriesIdChange} />
+        <label htmlFor="seriesId" className="my-2">
+          Series ID:
+          <Input
+            id="seriesId"
+            type="text"
+            placeholder="Series ID"
+            value={seriesId}
+            onChange={handleSeriesIdChange}
+          />
         </label>
-        <label htmlFor="episode"  className="my-2">Episode No:
-          <Input id="episode" type="text" placeholder="Episode No" value={episode} onChange={handleEpisodeChange} />
+        <label htmlFor="episode" className="my-2">
+          Episode No:
+          <Input
+            id="episode"
+            type="text"
+            placeholder="Episode No"
+            value={episode}
+            onChange={handleEpisodeChange}
+          />
         </label>
-        <label htmlFor="url"  className="my-2">URL:
-          <Input id="url" type="text" placeholder="URL" value={url} onChange={handleUrlChange} />
+        <label htmlFor="url" className="my-2">
+          URL:
+          <Input
+            id="url"
+            type="text"
+            placeholder="URL"
+            value={url}
+            onChange={handleUrlChange}
+          />
         </label>
-        <Button variant='secondary' type="submit"  className="my-2">Submit <SendIcon/></Button>
+        <Button variant="secondary" type="submit" className="my-2">
+          Submit <SendIcon />
+        </Button>
       </form>
-      <Button onClick={handleShowTable}>Load All Episode for selected series </Button>
-{table}
-      
+      <Button onClick={handleShowTable}>
+        Load All Episode for selected series{" "}
+      </Button>
+      {table}
     </main>
-  )
+  );
 }

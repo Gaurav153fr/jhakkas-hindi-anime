@@ -8,7 +8,7 @@ interface props {
 }
 export function MainCard(props: props) {
   return (
-    <div className=" dark:bg-slate-900/70 shadow-md md:p-5  md:h-fit md:block flex md:max-w-52 max-w-fit my-2">
+    <div className=" dark:bg-slate-900/70 shadow-md md:p-5  md:h-fit md:block flex md:max-w-52 max-w-fit my-2 sm:h-auto min-w-40">
       <div className="w-1/2 md:w-full p-2  h-52 overflow-hidden ">
         <img
           src={props.url}

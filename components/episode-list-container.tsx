@@ -23,10 +23,10 @@ params.url?url=params.url:url=''
 
 
     return (
-        <section className="p-5 flex flex-wrap md:gap-3 gap-4 ">
+        <section className="p-5 flex flex-wrap md:gap-3 gap-4 h-60 ">
             {sorted && sorted.map((item, i) => (
                 <Link key={i} href={`${url}${item.ep_no}`} className={cn(buttonVariants({ variant: 'outline' }), {
-                    "bg-foreground text-background":item.ep_no==params.active_ep})}>
+                    "bg-foreground text-background ":item.ep_no==params.active_ep},"w-11")}>
                             {item.ep_no}
                 </Link>))} 
 

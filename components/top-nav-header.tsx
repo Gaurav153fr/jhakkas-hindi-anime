@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
   return (
@@ -16,7 +18,7 @@ export default function Header() {
           <span>हिंदी</span>
         </Link>
         <span className="flex">
-          {/* <Link href='/admin' className={cn(buttonVariants({variant:'secondary'}),"w- flex justiy-around mr-2" )}>Admin</Link> */}
+           <Link href='https://discord.gg/YZxmFp2m' className={cn(buttonVariants({variant:'secondary'}),"w- flex justiy-around mr-2" )}>Discord</Link> 
           <ModeToggle />{" "}
         </span>
       </nav>
