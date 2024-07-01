@@ -2,7 +2,7 @@
 import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
-import { cn } from "@/lib/utils";
+
 import { SearchIcon, UserIcon } from "lucide-react";
 
 export default function Header() {

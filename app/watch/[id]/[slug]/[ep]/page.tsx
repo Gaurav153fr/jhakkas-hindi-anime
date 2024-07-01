@@ -32,7 +32,7 @@ export default function Home({ params }: { params: params }) {
               <Clapperboard />
             </span>
           </h2>
-          <div className=" h-60 overflow-y-scroll max-md:pt-10  ">
+          <div className=" max-h-60 overflow-y-scroll max-md:pt-10 flex justify-center w-full ">
             <EpiList id={params.id} active_ep={params.ep} />
           </div>
 
