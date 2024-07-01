@@ -17,10 +17,10 @@ const LatestEpisode = async({data}:{data:epRow}) => {
   const slug = await GetSlugById(data.series_id);
    
   return (
-    <Card className="bg-gradient-to-r from-secondary/90 to-secondary/70 text-secondary-foreground">
+    <Card className="bg-gradient-to-r from-secondary/90 to-secondary/70 text-secondary-foreground mx-1">
     <CardHeader className="flex items-center justify-between">
       <div>
-        <CardTitle className='line-clamp-2'>{data.series}</CardTitle>
+        <CardTitle className='line-clamp-2 max-md:text-sm text-xl w-full tracking-tighter'>{data.series}</CardTitle>
         <CardDescription className='text-center w-full'>Episode {data.ep_no}</CardDescription>
       </div>
       <Button variant="outline" size="sm">

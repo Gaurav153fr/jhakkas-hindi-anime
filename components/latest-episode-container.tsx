@@ -11,7 +11,7 @@ interface epRow {
 }
 
 const LatestEpisodeContainer = async() => {
-    const res = await sql`SELECT * FROM episode ORDER BY id DESC LIMIT 3`;
+    const res = await sql`SELECT * FROM episode ORDER BY id DESC LIMIT 5`;
 
     const rows:epRow[] = res.rows.map((row: QueryResultRow) => {
         return {
@@ -25,9 +25,9 @@ const LatestEpisodeContainer = async() => {
     console.log(res.rows,"hello");
     
   return (
-    <section className="py-12 md:py-16 lg:py-20 w-full">
-      <div className="container mx-auto ">
-        <div className="flex overflow-x-scroll md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className=" w-full">
+      <div className="md:px-10 ">
+        <div className="flex max-md:overflow-x-scroll ">
            {rows && rows.map((row,index)=>(<LatestEpisode key={index} data={row}/>))}
              
             

@@ -28,11 +28,11 @@ export default function Home({ params }: { params: params }) {
         <div className="md:w-2/5 w-full h-full md:px-0 px-1">
           <h2 className="font-bold text-2xl my-5 flex tracking-tight w-full max-md:justify-between px-2  ">
             Available Episodes{" "}
-            <span className=" flex ml-5 justify-center flex items-center">
+            <span className="  ml-5 justify-center flex items-center">
               <Clapperboard />
             </span>
           </h2>
-          <div className=" h-60 overflow-y-scroll  ">
+          <div className=" h-60 overflow-y-scroll max-md:pt-10  ">
             <EpiList id={params.id} active_ep={params.ep} />
           </div>
 

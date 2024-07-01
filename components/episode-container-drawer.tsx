@@ -50,12 +50,12 @@ export function DrawerMain(props: props) {
 
             {/* <div className="mt-3 h-[100px]"></div> */}
           </div>
-          <DrawerFooter>
+          <DrawerFooter className="w-full">
             <Link
               href={props.url + 1}
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "w-full flex justiy-around ml-2"
+                "w-full flex justiy-around "
               )}
             >
               Start first Episode

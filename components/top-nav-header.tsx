@@ -29,14 +29,11 @@ export default function Header() {
           <div className="flex items-center gap-2">
          
             <Button variant="ghost" size="icon" className="rounded-full">
-              <Link href='#search'>
+              <Link href='/search'>
               <SearchIcon className="w-5 h-5" />
               <span className="sr-only">Search</span></Link>
             </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <UserIcon className="w-5 h-5" />
-              <span className="sr-only">Account</span>
-            </Button>
+            <ModeToggle />
           </div>
         </div>
       </header>

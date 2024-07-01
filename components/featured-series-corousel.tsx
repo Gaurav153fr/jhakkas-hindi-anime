@@ -27,7 +27,7 @@ export function CarouselMain() {
                       height={600}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4">
+                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4 bg-black/50 text-white">
                       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-2xl shadow-muted">Attack on Titan</h2>
                       <p className="text-lg md:text-xl lg:text-2xl">
                       
@@ -46,7 +46,7 @@ export function CarouselMain() {
                       height={600}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4">
+                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4 text-white bg-black/50">
                       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Demon Slayer</h2>
                       <p className="text-lg md:text-xl lg:text-2xl">
                         The thrilling journey continues. Watch the latest episodes.
@@ -58,14 +58,14 @@ export function CarouselMain() {
                 <CarouselItem>
                   <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-r from-primary/90 to-primary/70 text-primary-foreground">
                     <img
-                      src="/placeholder.svg"
+                      src="https://media.tenor.com/K70lTMmZjSUAAAAC/jjk-jujutsu-kaisen.gif"
                       alt="Anime Series"
                       width={1200}
                       height={600}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4">
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Jujutsu Kaisen</h2>
+                    <div className="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-8 lg:px-12 space-y-4 text-white bg-black/50">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Jujutsu Kaisen</h2>
                       <p className="text-lg md:text-xl lg:text-2xl">
                         The battle against cursed spirits continues. Catch up now.
                       </p>

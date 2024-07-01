@@ -24,17 +24,17 @@ interface props {
 }
 export function MainCard(props: props) {
   return (
-    <Card className="bg-muted text-muted-foreground  w-52 max-md:my-3">
-      <CardHeader className="p-5">
+    <Card className="bg-background text-muted-foreground  w-52 max-md:my-3 max-md:flex max-md:w-full">
+      <CardHeader className="md:p-5 max-md:w-1/4 p-0">
         <img
           src={props.url}
           alt="Anime Series"
-          width={300}
+          width={500}
           height={200}
-          className="rounded-t-lg object-cover w-full aspect-[3/2]"
+          className="rounded-t-lg object-cover w-full md:aspect-[3/2] h-full"
         />
       </CardHeader>
-      <CardContent className="p-4 ">
+      <CardContent className="p-4 max-md:w-3/4">
         <TooltipProvider >
           <Tooltip>
             <TooltipTrigger>
