@@ -26,9 +26,8 @@ export function DrawerMain(props: props) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="secondary" className="w-full flex justiy-around ">
-          {" "}
-          <PlayIcon /> <span> Watch</span>
+        <Button variant="outline" size="sm">
+          Watch Now
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -45,9 +44,9 @@ export function DrawerMain(props: props) {
             </span>
           </DrawerHeader>
           <div className="p-4 pb-0">
-          <div className="flex items-center flex-col md:flex-row justify-center md:space-x-2 max-h-60 overflow-auto ">
-  <EpiList id={props.id} active_ep={1} url={props.url} />
-</div>
+            <div className="flex items-center flex-col md:flex-row justify-center md:space-x-2 max-h-60 overflow-auto ">
+              <EpiList id={props.id} active_ep={1} url={props.url} />
+            </div>
 
             {/* <div className="mt-3 h-[100px]"></div> */}
           </div>

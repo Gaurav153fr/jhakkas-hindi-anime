@@ -1,4 +1,20 @@
+import { StarIcon } from "lucide-react";
 import { DrawerMain } from "./episode-container-drawer";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+
 interface props {
   id: number;
   url: string;
@@ -8,30 +24,45 @@ interface props {
 }
 export function MainCard(props: props) {
   return (
-    <div className=" dark:bg-slate-900/70 shadow-md md:p-5  md:h-fit md:block flex md:max-w-52 max-w-fit my-2 sm:h-auto min-w-40">
-      <div className="w-1/2 md:w-full p-2  h-52 overflow-hidden ">
+    <Card className="bg-muted text-muted-foreground  w-52 max-md:my-3">
+      <CardHeader className="p-5">
         <img
           src={props.url}
-          alt="Image"
-          className=" w-full h-full rounded-md object-cover "
-          loading="lazy"
+          alt="Anime Series"
+          width={300}
+          height={200}
+          className="rounded-t-lg object-cover w-full aspect-[3/2]"
         />
-      </div>
-      <span className="w-1/2 p-2 md:w-full flex flex-col justify-between pb-5">
-        <p className=" line-clamp-3 font-semibold text-slate-600 text-sm">
-          {props.story}
-        </p>
-        <span>
-          <h3 className=" font-medium my-1 text-center line-clamp-1 ">{props.name}</h3>
-          <DrawerMain
+      </CardHeader>
+      <CardContent className="p-4 ">
+        <TooltipProvider >
+          <Tooltip>
+            <TooltipTrigger>
+             
+                <span className="w-full line-clamp-1 text-2xl font-semibold leading-none tracking-tight ml-0">
+                {props.name}</span>
+              
+            </TooltipTrigger>
+            <TooltipContent>
+              <CardTitle>{props.name}</CardTitle>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <CardDescription className="line-clamp-2">{props.story}</CardDescription>
+        <div className="flex items-center justify-between mt-4">
+        <DrawerMain
             id={props.id}
             story={props.story}
             name={props.name}
             url={`/watch/${props.id}/${props.slug}/`}
           />
-          {/* <Link href= className={cn(buttonVariants({variant:'secondary'}),"w-full flex justiy-around" )}></Link> */}
-        </span>
-      </span>
-    </div>
+          <div className="flex items-center gap-1 text-muted">
+            <StarIcon className="w-4 h-4" />
+            <span>4.9</span>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

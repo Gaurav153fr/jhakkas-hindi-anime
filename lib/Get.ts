@@ -70,3 +70,19 @@ export async function fetchRowById(id: string): Promise<Row | null> {
     return null; // Return null in case of an error
   }
 }
+
+export async function GetSlugById(id:number) {
+   
+    try  {
+        const response = await sql`SELECT slug FROM series where id=${id};`;
+        if (!response || !response) {
+            throw new Error(`Failed to fetch series`);
+        }
+        const data = response;
+        //  console.log('Series data:', data.rows,"hfdhfhfhffffffffffff");
+        return data.rows[0].slug;
+    } catch (error) {
+        console.error('Error fetching series:', error);
+        throw error;
+    }
+}
