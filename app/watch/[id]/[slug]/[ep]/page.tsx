@@ -4,7 +4,7 @@ import EpiList from "@/components/episode-list-container";
 import SeriesContainer from "@/components/series-card-container";
 import VideoIframe from "@/components/video-player";
 import { Clapperboard } from "lucide-react";
-import { Metadata } from "next";
+
 interface params {
   id: number;
   slug: string;
@@ -50,9 +50,10 @@ export default function Home({ params }: { params: params }) {
 
 export async function generateMetadata({ params }: { params: params }) {
   return {
-    title:`watching ${params.slug.replaceAll("-", " ")} hindi dub episode no  ${
-      params.ep
-    } only on jhakkas`,
-    description:"Watch, Download, Hindi Dubbed anime free without add" ,
+    title: `watching ${params.slug.replaceAll(
+      "-",
+      " "
+    )} hindi dub episode no  ${params.ep} only on jhakkas`,
+    description: "Watch, Download, Hindi Dubbed anime free without add",
   };
 }
