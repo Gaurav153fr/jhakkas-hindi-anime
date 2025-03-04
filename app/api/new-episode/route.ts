@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       VALUES (${seriesName}, ${epNo}, ${url}, ${seriesId})
     `;
     
-    return NextResponse.json({ seriesData }, { status: 200 });
+    return NextResponse.json({ seriesData}, { status: 200 });
   } catch (error:any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

@@ -21,6 +21,8 @@ export default function Page() {
     const data = e.split(",");
     setSeriesId(data[0]);
     setSeries(data[1]);
+    console.log(e );
+    
   };
 
   const handleEpisodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -29,8 +29,7 @@ export default async function SelectContainer( handleChange : (value:string)=>vo
       throw new Error("Failed to fetch series data");
     }
     const data: SeriesData = await response.json();
-    console.log(data)
-
+   
     return (
       <div>
         <Select onValueChange={(value: string) => handleChange(value)}>
@@ -42,7 +41,7 @@ export default async function SelectContainer( handleChange : (value:string)=>vo
               <SelectLabel>Series</SelectLabel>
               {data.rows.length > 0 ? (
                 data.rows.map((row) => (
-                  <SelectItem key={row.id} value={`${row.id},/${row.name},/${row.slug},/${row.sypnosis},/${row.url},/${row.created_on}`}>
+                  <SelectItem key={row.id} value={`${row.id},${row.name}`}>
                     {row.name}
                   </SelectItem>
                 ))
