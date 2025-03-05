@@ -26,7 +26,7 @@ export function DrawerMain(props: props) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" className="w-full">
           Watch Now
         </Button>
       </DrawerTrigger>

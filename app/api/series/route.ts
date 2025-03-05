@@ -1,4 +1,6 @@
+import { revalidate } from '@/components/episode-list-container';
 import { sql, QueryResultRow } from '@vercel/postgres';
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 interface Row {
@@ -70,7 +72,7 @@ export async function POST(request: Request) {
       INSERT INTO series(name, slug, sypnosis, url,created_on) 
       VALUES (${seriesName}, ${slug}, ${story}, ${url},CURRENT_DATE)
     `;
-    
+    revalidatePath("/")
     const seriesData = await sql`SELECT * FROM series WHERE slug=${seriesName};`;
     return NextResponse.json({ seriesData }, { status: 200 });
   } catch (error:any) {

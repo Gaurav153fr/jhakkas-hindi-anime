@@ -4,7 +4,7 @@ import LatestEpisodeContainer from "@/components/latest-episode-container";
 import SeriesContainer from "@/components/series-card-container";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { PopcornIcon } from "lucide-react";
+import { PlaySquareIcon, PopcornIcon, Tv } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -22,13 +22,15 @@ export default function Home() {
         to Contribute.
       </div>
       <CarouselMain />
-      <h2 className="text-xl md:text-xl lg:text-xl font-bold">
-        Latest Episodes
-      </h2>
+      <div className="parent-container flex justify-start self-start px-10">
+      <h2 className="font-bold text-3xl my-5 flex justify-initial dark:text-slate-300 items-center align-center">
+          Latest Episodes <span className="mx-2"></span> <PlaySquareIcon />
+        </h2>
+        </div>
       <LatestEpisodeContainer />
       <div className="parent-container flex justify-start self-start px-10">
         <h2 className="font-bold text-3xl my-5 flex justify-initial dark:text-slate-300 items-center align-center">
-          Latest Series <span className="mx-2"></span> <PopcornIcon />
+          Latest Series <span className="mx-2"></span> <Tv />
         </h2>
       </div>
 

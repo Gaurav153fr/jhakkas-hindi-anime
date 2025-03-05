@@ -7,7 +7,7 @@ export default async function SeriesContainer({horizontal}:{horizontal:Boolean})
 
   const list: Row[] = JSON.parse(JSON.stringify(seriesData));
   return (
-    <section className={ cn(" w-full md:flex max-w-full  gap-x-3 gap-y-5 md:px-5 px-1  justify-center", horizontal?"":"md:flex-wrap")}>
+    <section className={ cn(" w-full sm:flex max-w-full  gap-x-3 gap-y-5 sm:px-5 px-1  justify-center", horizontal?"":"md:flex-wrap")}>
       {list.length > 0 ? (
         list.map((item, i) => (
           
@@ -28,4 +28,3 @@ export default async function SeriesContainer({horizontal}:{horizontal:Boolean})
   );
 }
 
-export const revalidate = 1800;
