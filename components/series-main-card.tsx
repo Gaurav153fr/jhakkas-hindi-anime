@@ -30,6 +30,7 @@ export async function MainCard(props: props) {
           width={500}
           height={800}
           className=" object-cover w-full sm:aspect-[9/14] h-full"
+           sizes="(max-width: 768px) 100px, (max-width: 1200px) 600px, 800px"
         /></div>
       </CardContent>
       <CardFooter className=" max-sm:w-3/4 p-0 px-1 w-full">

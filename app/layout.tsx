@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/top-nav-header";
 import NextTopLoader from 'nextjs-toploader';
-import { Analytics } from '@vercel/analytics/react';
+
 import { UmamiAnalytics } from "@/components/UmamiAnalytics";
 export const metadata: Metadata = {
   title: "Jhakkas: hindi anime",
@@ -30,7 +30,7 @@ export default function RootLayout({
           > <NextTopLoader />
              <Header />
              <main>{children}
-             <Analytics />
+           
              <Toaster/></main>
      
           </ThemeProvider>

@@ -31,6 +31,7 @@ const LatestEpisode = async({data}:{data:epRow}) => {
           src={thumbnail.url}
           alt={data.series}
           className="w-full h-full object-cover  opacity-40 rounded-3xl"
+           sizes="(max-width: 768px) 40px, (max-width: 1200px) 600px, 800px"
           height={145}
           width={100}
           // Image with proper fit and opacity
@@ -39,7 +40,7 @@ const LatestEpisode = async({data}:{data:epRow}) => {
         <div className="absolute inset-0 bg-black opacity-0"></div>
         {/* Centered Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <p className="text-8xl flex items-end font-extrabold text-white mix-blend-difference [text-shadow:_0_4px_8px_rgba(0_0_0_/_0.5)]">
+          <p className="text-8xl flex items-end font-extrabold text-white md:mix-blend-difference md:[text-shadow:_0_4px_8px_rgba(0_0_0_/_0.5)]">
           {data.ep_no}
           </p>
           <p className="text-white text-xl mt-2 font-serif italic font-medium p-2 ">{data.series}</p>
