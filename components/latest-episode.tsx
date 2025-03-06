@@ -20,7 +20,7 @@ const LatestEpisode = async({data}:{data:epRow}) => {
 
   
   return (
-    <Link className="relative  w-52 h-64 rounded-3xl overflow-hidden  p-2 " href={`/watch/${slug}/${data.ep_no}`}>
+    <Link className="relative  w-52 h-64 rounded-3xl overflow-hidden  p-2 " href={`/watch/${data.series_id}/${slug}/${data.ep_no}`}>
     {" "}
     {/* Fixed height for the card */}
     <div className="relative rounded-3xl ">
