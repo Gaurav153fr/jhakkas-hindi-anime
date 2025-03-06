@@ -9,7 +9,7 @@ export default async function SeriesContainer({horizontal}:{horizontal:Boolean})
   return (
     <section className={ cn(" w-full sm:flex max-w-full  gap-x-3 gap-y-5 sm:px-5 px-1  justify-center", horizontal?"":"md:flex-wrap")}>
       {list.length > 0 ? (
-        list.map((item, i) => (
+        list.reverse().map((item, i) => (
           
             <MainCard
             key={item.id}
