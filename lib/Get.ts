@@ -49,7 +49,9 @@ export async function GetUrl(id: number, ep_no: number) {
   try {
     const result =
       await sql`SELECT url FROM episode where series_id=${idS} and ep_no=${epS};`;
-    return result.rows[0];
+      console.log(result.rows[0].url);
+      
+    return result.rows[0].url;
   } catch (error) {
     console.error("Error fetching URL:", error);
     throw error;

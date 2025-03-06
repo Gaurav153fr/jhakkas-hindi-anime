@@ -4,26 +4,19 @@ interface props {
   ep_no: number;
 }
 export default async function VideoIframe(props: props) {
-  const data = await GetUrl(props.id, props.ep_no);
-  var url;
-  try {
-    const p = JSON.parse(JSON.stringify(data));
-    url = p;
-  } catch {
-    url = "null   ";
-    return;
-  }
+  const url = await GetUrl(props.id, props.ep_no);
+  
   return (
     <>
-      {data && (
+      {url && (
         <iframe
-          title="video"
-          id="iframe"
-          allowFullScreen
-          src={url.url}
-          className="w-full h-full rounded-md shadow-lg"
-        />
-      )}
+  src={url}
+  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+  allowFullScreen={true}
+className="w-full h-full"
+  loading="lazy"
+ 
+/>      )}
     </>
   );
 }

@@ -3,7 +3,7 @@ import { AdAlert } from "@/components/ad-alert";
 import EpiList from "@/components/episode-list-container";
 import SeriesContainer from "@/components/series-card-container";
 import VideoIframe from "@/components/video-player";
-import { Clapperboard } from "lucide-react";
+import { Clapperboard, ListVideo, LucideTv2 } from "lucide-react";
 
 interface params {
   id: number;
@@ -26,18 +26,20 @@ export default function Home({ params }: { params: params }) {
         </div>
 
         <div className="md:w-2/5 w-full h-full md:px-0 px-1">
-          <h2 className="font-bold text-2xl my-5 flex tracking-tight w-full max-md:justify-between px-2  ">
-            Available Episodes{" "}
-            <span className="  ml-5 justify-center flex items-center">
-              <Clapperboard />
-            </span>
-          </h2>
+        <div className="parent-container flex justify-start self-start px-10">
+      <h2 className="font-bold text-3xl my-5 flex justify-initial dark:text-slate-300 items-center align-center">
+         Available Episodes <span className="mx-2"></span> <ListVideo />
+        </h2>
+        </div>
           <div className=" max-h-60 overflow-y-scroll max-md:pt-10 flex justify-center w-full ">
             <EpiList id={params.id} active_ep={params.ep} />
           </div>
 
-          <h2 className="font-bold text-2xl my-5 px-2">Other Series</h2>
-
+          <div className="parent-container flex justify-start self-start px-10">
+      <h2 className="font-bold text-3xl my-5 flex justify-initial dark:text-slate-300 items-center align-center">
+         More Series <span className="mx-2"></span> <LucideTv2 />
+        </h2>
+        </div>
           <SeriesContainer horizontal={false} />
           <span className="md:hidden">
             <AccordionFaq />

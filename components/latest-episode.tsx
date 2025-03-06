@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/
 import Link from 'next/link'
 import { GetAllSeries, GetSlugById } from '@/lib/Get'
 import { sql } from '@vercel/postgres'
+import Image from 'next/image'
 interface epRow {
   id: number,
   series: string,
@@ -26,7 +27,7 @@ const LatestEpisode = async({data}:{data:epRow}) => {
     <div className="relative rounded-3xl ">
       <div className="relative w-full h-full ">
         {/* Image */}
-        <img
+        <Image
           src={thumbnail.url}
           alt={data.series}
           className="w-full h-full object-cover  opacity-40 rounded-3xl"
